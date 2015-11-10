@@ -7,6 +7,8 @@ const proxy = httpProxy.createProxyServer({
   appendPath: false
 });
 
+proxy.on('error', console.error.bind(console));
+
 const server = http.createServer((req, res) => {
   console.log(`${req.method} ${req.url}`);
   res.setHeader('Access-Control-Allow-Origin', '*');
