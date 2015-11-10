@@ -1,4 +1,4 @@
-# cors-proxy
+# CORS Proxy
 
 A simple HTTP(S) CORS proxy.
 
