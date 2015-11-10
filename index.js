@@ -7,7 +7,10 @@ const proxy = httpProxy.createProxyServer({
   appendPath: false
 });
 
-proxy.on('error', console.error.bind(console));
+proxy.on('error', (er, req, res) => {
+  res.writeHead(500, {'Content-Type': 'text/plain'});
+  res.end(er.toString());
+});
 
 const server = http.createServer((req, res) => {
   console.log(`${req.method} ${req.url}`);
